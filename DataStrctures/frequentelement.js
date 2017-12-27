@@ -9,7 +9,7 @@ Second line of each test case consists of NN space separated integers denoting t
 Output:
 For each test case, print "Lucky" (without quotes) if frequency of minimum element is odd, otherwise print "Unlucky"(without quotes). Print a new line after each test case.
 
-Constraints: 
+Constraints:
 1≤T≤101≤T≤10
 1≤N≤1051≤N≤105
 1≤A[i]≤1091≤A[i]≤109
@@ -41,6 +41,13 @@ var code = (function(){
 		return count;
 	}
 	return{
+		/**
+		 * countFrequentElements: return Unlucky or Lucky based on conditions
+		 * @params: arr
+		 * @return: (string)
+		 * @methods:
+		 	1. countFrequent : The countFrequent() method will count the number of occurrences of arr index.
+		*/
 		countFrequentElements: function(arr = []){
 			var count = 0;
 			var minOfarr = 0;

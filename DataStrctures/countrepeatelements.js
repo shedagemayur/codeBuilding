@@ -1,4 +1,5 @@
-/*
+/**
+
 Arijit is a brilliant boy. He likes memory games. He likes to participate alone but this time he has to have a partner. So he chooses you.
 
 In this Game , your team will be shown N numbers for few minutes . You will have to memorize these numbers.
@@ -53,6 +54,7 @@ For the first query i.e for 1 , the total of number of occurrences of 1 in the g
 For the second query i.e. for 2, the total of number of occurrences of 2 in the given array is 2 . Hence the corresponding output is 2.
 
 For the fifth query i.e. for 3. 3 is not present in the array . So the corresponding output is "NOT PRESENT" (without quotes).
+
 */
 
 var code = (function(){
@@ -65,6 +67,12 @@ var code = (function(){
 		return count;
 	}
 	return{
+		/**
+		 * getRepeatCountOfNumber: return count of repeated number
+		 * @params: arr(dafault YES) and num(default YES)
+		 * @return: (integer) count
+		 	1. counter : The counter() method will count the number of occurrences of arr index.
+		*/
 		getRepeatCountOfNumber: function(arr = [], num = 0){
 			if(arr.length == 0){
 				return 0;
@@ -75,6 +83,11 @@ var code = (function(){
 		    var count = counter(arr);
 		    return count[num];
 		},
+		/**
+		 * getRepeatCountofCharacter: return count of repeated character
+		 * @params: string(default YES) and char(default YES)
+		 * @return: (integer) count
+		*/
 		getRepeatCountofCharacter: function(string = '', char = 'a'){
 			if(string.length == 0){
 				return 0;
@@ -88,5 +101,5 @@ var code = (function(){
 		    var count = counter(string.split(''));
 		    return count[char];
 		}
-	}	
+	}
 })();

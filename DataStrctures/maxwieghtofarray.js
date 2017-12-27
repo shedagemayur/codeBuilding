@@ -39,6 +39,13 @@ var code = (function($){
 		return a + b;
 	}
 	return{
+		/**
+		 * getMaxArrayWeight: return max wieght
+		 * @params: firstarr and secondarr array
+		 * @return: (string) with Max wieght array name
+		 * @methods:
+		 	1. reduce : The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+		*/
 		getMaxArrayWeight: function(firstarr = [], secondarr = []){
 			var maxweight = 0;
 			var firstString = "First array having maximum weight";
