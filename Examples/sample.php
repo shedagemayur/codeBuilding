@@ -39,27 +39,47 @@ if (!empty($_REQUEST)) {
 			document.getElementById(id).style.display = value;
 		};
 
-		let cc_fadeIn = (id, callback) => {
-			if(typeof(id) === undefined || id == ''){
-				return;
-			}
-			document.getElementById(id).style.opacity = 1;
-			document.getElementById(id).style.display = 'block';
-			document.getElementById(id).style.transition = 'opacity 1s';
-			if(callback){
-				callback();
-			}
-		};
+	let cc_fadeOut = (id, callback) => {
+		if(typeof(id) === undefined || id == ''){
+			return;
+		}
+		var element = document.getElementById(id);
+	    var opacity = 1;
+	    var callback = callback || function(){};
+	    var timer = setInterval(function () {
+	        if (opacity <= 0.1){
+	            clearInterval(timer);
+	            element.style.display = 'none';
+	        }
+	        element.style.opacity = opacity;
+	        element.style.filter = 'alpha(opacity=' + opacity * 100 + ")";
+	        opacity -= opacity * 0.1;
+	    }, 10);
+	    if(callback){
+	    	callback();
+	    }
+	};
 
-		let cc_fadeOut = (id, callback) => {
-			if(typeof(id) === undefined || id == ''){
-				return;
+	let cc_fadeIn = (id, callback) => {
+		if(typeof(id) === undefined || id == ''){
+			return;
+		}
+		var element = document.getElementById(id);
+		var opacity = 0.1;
+		var callback = callback || function(){};
+		element.style.display = 'block';
+		var timer = setInterval(function () {
+			if (opacity >= 1){
+				clearInterval(timer);
 			}
-			document.getElementById(id).style.opacity = 0;
-			if(callback){
-				callback();
-			}
-		};
+			element.style.opacity = opacity;
+			element.style.filter = 'alpha(opacity=' + opacity * 100 + ")";
+			opacity += opacity * 0.1;
+		}, 20);
+		if(callback){
+	    	callback();
+	    }
+	};
 
 		let cc_addEventLicener = (id, event, callback) => {
 			if(typeof(id) === undefined || id == ''){
