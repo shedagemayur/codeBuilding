@@ -3,8 +3,11 @@
 $response = array();
 
 if (!empty($_REQUEST)) {
+	$data = file_get_contents("php://input");
+	$data = json_decode($data, TRUE);
 	$response['success'] = 1;
-	$response['data'] = $_REQUEST;
+	$response['payload_data'] = $data;
+	$response['request_data'] = $_REQUEST;
 	echo json_encode($response);
 	exit();
 }else{
@@ -100,13 +103,14 @@ if (!empty($_REQUEST)) {
 			    name: 'Sara',
 			    color: 'red'
 			},
-			ts = Math.floor(Date.now() / 1000);
+			ts = Math.floor(Date.now() / 1000),
+			header =  new Headers({
+			    'Content-Type': 'application/json'
+			});
 			var request = new Request('sample.php?ts='+ts, {
-				method: 'post',
-				headers: {
-					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-				},
-				body: queryString(data)
+				method: 'POST',
+				headers: header,
+				body: JSON.stringify(data)
 			});
 
 			fetch(request).then(res => res.json()).then(
