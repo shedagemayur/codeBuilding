@@ -18,7 +18,7 @@
 
 	// Sync firebase object changes
 	dbRef.on('value', snapshot => {
-		userinfo.innerText = JSON.stringify(snapshot.val(), null, 3);
+		userInfo.innerText = JSON.stringify(snapshot.val(), null, 3);
 	});
 
 	// Set value to database
