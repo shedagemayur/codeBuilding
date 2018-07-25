@@ -6,8 +6,7 @@
 </head>
 <body>
 <script>
-	let jqcc = function(){};
-	let code = (function($){
+	let code = (function(){
     	return{
     		encryptMessage: function(messageToencrypt = '', secretkey = ''){
 		    	var encryptedMessage = CryptoJS.AES.encrypt(messageToencrypt, secretkey);
@@ -20,7 +19,7 @@
     			return decryptedMessage;
     		}
     	}
-	})(jqcc);
+	})();
 </script>
 </body>
 </html>
